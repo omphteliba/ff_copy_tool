@@ -32,13 +32,11 @@ page:
 requires:
   redaxo: "^5.10" # benötigt mindestens REDAXO 5.10
   packages:
-    media_manager: "^2.0.1" # benötigt mindestens das AddOn Media Manager 2.0.1
     yform: ">3.4.0"
   plugins:
     yform/rest: ">3.4.0"
   php:
     version: ">=8" # benötigt mindestens PHP 8
-    extensions: [gd, xml, curl] # benötigt die PHP-Extensions GDlib und XML
 
 # Plugins die automatisch installiert werden sollen
 system_plugins:
