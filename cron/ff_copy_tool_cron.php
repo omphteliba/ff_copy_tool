@@ -1,0 +1,2 @@
+<?php
+FfCopyTool::runsOnTarget();

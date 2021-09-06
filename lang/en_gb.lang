@@ -1,0 +1,23 @@
+# Da R5 nur noch mit UTF8 arbeitet, entfällt der "utf8"-Suffix
+
+# Die Keys sollten mit dem Addonnamen (AddOn-Präfix) beginnen, da sie so innerhalb des AddOns vereinfacht abgefragt werden können
+# also hier AddOn-Präfix `ff_copy_tool_`
+
+# Bezeichnung in der REDAXO-Navigation -> translate:navititle in der package.yml
+ff_copy_tool_navititle = Copy Tool
+
+ff_copy_tool_config_sites = Destination Domains
+ff_copy_tool_config_token = Destination Token
+
+ff_copy_tool_extras = Copy article to website
+ff_copy_tool_extras_website = Destination-Website
+ff_copy_tool_extras_button = Copy
+
+ff_copy_tool_copy_success = Copying has worked! The article should be available on the destination system shortly.
+ff_copy_tool_copy_error = An error occurred during copying.
+
+ff_copy_tool_runsOnTarget_success = Queue successfully accepted.
+ff_copy_tool_runsOnTarget_error = An error occurred while transferring the queue!
+ff_copy_tool_runsOnTarget_error_log = FF Copy Tool - Something went wront while runsOnTarget()
+
+cronjob_ff_copy = FF Copy Tool

@@ -1,0 +1,126 @@
+# Da R5 nur noch mit UTF8 arbeitet, entfällt der "utf8"-Suffix
+
+# Die Keys sollten mit dem Addonnamen (AddOn-Präfix) beginnen, da sie so innerhalb des AddOns vereinfacht abgefragt werden können
+# also hier AddOn-Präfix `ff_copy_tool_`
+
+# Bezeichnung in der REDAXO-Navigation -> translate:navititle in der package.yml
+ff_copy_tool_navititle = Copy Tool
+
+# AddOn-Titel für alle AddOn-Seiten, AddOn-Präfix (hier `ff_copy_tool_`) + `title` -> `ff_copy_tool_title`
+ff_copy_tool_title = FACT-Finder Copy Tool
+
+# Eigener Block mit Bezeichnung in der REDAXO-Navigation
+# in der package.yml des AddOns folgendes unter page angeben: `block: ff_copy_tool`
+# `navigation_` + `addon-Name` hier also `navigation_ff_copy_tool`
+navigation_ff_copy_tool = Copy Tool
+
+# Hauptnavi-Punkte des AddOns
+ff_copy_tool_intro = Copy Tool
+ff_copy_tool_config = Einstellungen
+ff_copy_tool_tables = Tabellen
+ff_copy_tool_eps = Extension Points
+ff_copy_tool_hidden_page = Versteckte Seite
+
+# Reiter ff_copy_tool
+ff_copy_tool_description = Beschreibung
+ff_copy_tool_readme = README
+ff_copy_tool_changelog = CHANGELOG
+ff_copy_tool_properties = Properties
+ff_copy_tool_properties_title = AddOn-Properties
+ff_copy_tool_hidden_subpage = Versteckte Unterseite
+
+# Reiter Einstellungen
+ff_copy_tool_config_rex_config_form = mit rex_config_form
+ff_copy_tool_config_classic_form = klassisch (rex_form / rex_list)
+ff_copy_tool_config_master = Master Datenbank
+ff_copy_tool_config_slaves = Slave Datenbanken
+
+ff_copy_tool_config_title_rex_config = Einstellungen mit rex_config_form
+ff_copy_tool_config_title_classic = Einstellungen klassisch (rex_form, rex_list, Fragmente)
+
+ff_copy_tool_config_legend1 = Einfache Felder
+ff_copy_tool_config_url = URL
+ff_copy_tool_config_text = Text
+ff_copy_tool_config_checkbox = Checkbox
+ff_copy_tool_config_select = Select
+ff_copy_tool_config_multiselect = Multiselect
+ff_copy_tool_config_multiselect_note = Mehrfachauswahl mit <kbd>STRG</kbd> bzw. <kbd>CMD</kbd>
+ff_copy_tool_config_radio_fe = Frontend
+ff_copy_tool_config_radio_be = Backend
+
+ff_copy_tool_config_legend2 = Medienpool
+ff_copy_tool_config_media = Datei
+ff_copy_tool_config_medialist = Datei-Liste
+ff_copy_tool_config_mediacategories = Medienkategorien
+
+ff_copy_tool_config_legend3 = Linkmap usw.
+ff_copy_tool_config_article = Artikel
+ff_copy_tool_config_articlelist = Artikel-Liste
+ff_copy_tool_config_categories = Kategorienauswahl
+
+ff_copy_tool_config_save = Einstellungen speichern
+ff_copy_tool_config_saved = Einstellungen wurden gespeichert!
+
+# Reiter Copy
+ff_copy_tool_copy = Kopieren
+
+# Reiter Tabellen
+ff_copy_tool_updatetable = Tabellenverwaltung
+
+ff_copy_tool_thead_title = Demo Tabellenverwaltung mit rex_list/rex_form
+ff_copy_tool_thead_id = ID
+ff_copy_tool_thead_anrede = Anrede
+ff_copy_tool_thead_vorname = Vorname
+ff_copy_tool_thead_name = Name
+ff_copy_tool_thead_strasse = Strasse
+ff_copy_tool_thead_plz = PLZ
+ff_copy_tool_thead_ort = Ort
+ff_copy_tool_thead_birthdate = Geburtsdatum
+ff_copy_tool_thead_status = Status
+ff_copy_tool_thead_func = Funktionen
+ff_copy_tool_list_no_rows = Keine Einträge vorhanden!
+ff_copy_tool_list_mr = Herr
+ff_copy_tool_list_mrs = Frau
+ff_copy_tool_list_active = aktiv
+ff_copy_tool_list_inactive = inaktiv
+ff_copy_tool_list_edit = Datensatz bearbeiten
+ff_copy_tool_list_create_new_entry = Neuen Datensatz anlegen
+ff_copy_tool_confirm_delete = Datensatz löschen?
+ff_copy_tool_delete = Löschen
+ff_copy_tool_list_deleted = Datensatz wurde gelöscht!
+ff_copy_tool_list_activated = Datensatz wurde aktiviert!
+ff_copy_tool_list_deactivated = Datensatz wurde deaktiviert!
+ff_copy_tool_list_error = Beim Datenbank-Update ist ein Fehler aufgetreten!
+
+# Reiter Extension Points
+ff_copy_tool_eplist = Liste der Extension Points
+ff_copy_tool_logfile = Logfile
+ff_copy_tool_eplist_title = Liste der Beispiel Extension Points im Demo AddOn
+
+# Logdatei
+ff_copy_tool_log_timestamp = Zeit
+ff_copy_tool_logid = EP
+ff_copy_tool_log_message = Ausgabe
+ff_copy_tool_log_deleted = Logfile wurde gelöscht
+ff_copy_tool_log_delete_error = Fehler beim Löschen des Logfiles
+
+# Benennung für die Addonrechte
+# sichtbar innerhalb der REDAXO-Administration unter `Benutzer > Rollen > Allgemein`
+perm_general_ff_copy_tool[] = Rechte für Copy Tool-AddOn
+perm_general_ff_copy_tool[config] = Rechte für Copy Tool-AddOn-Konfiguration
+
+ff_copy_tool_config_sites = Ziel Domains
+ff_copy_tool_config_token = Ziel Token
+
+ff_copy_tool_extras = Artikel auf andere Web-Site kopieren
+ff_copy_tool_extras_website = Ziel-Webseite
+ff_copy_tool_extras_button = Kopieren
+
+ff_copy_tool_copy_success = Kopieren hat geklappt! Der Artikel sollte in Kürze auf dem Zielsystem verfügbar sein.
+ff_copy_tool_copy_error = Beim Kopieren ist ein Fehler aufgetreten.
+
+ff_copy_tool_runsOnTarget_success = Warteschleife erfolgreich übernommen.
+ff_copy_tool_runsOnTarget_error = Beim Übernehmen der Warteschleife ist ein Fehler aufgetreten!
+ff_copy_tool_runsOnTarget_error_log = FF Copy Tool - Something went wront while runsOnTarget()
+
+cronjob_ff_copy = FF Copy Tool

@@ -1,0 +1,118 @@
+# Definiert das AddOn, grundlegende Einstellungen - Diese Detei ist unbedingt erforderlich
+# Dokumentation der `package.yml` https://redaxo.org/doku/master/addon-package
+# Alle hier gesetzten Werte können über `$addon->getProperty($key)` abgefragt werden
+
+package: ff_copy_tool # Pflichtfeld
+version: "1.0.1" # Pflichtfeld
+author: Oliver Hörold # Pflichtfeld für FOR-AddOns
+#supportpage: https://github.com/FriendsOfREDAXO/ff_copy_tool # Github-Adresse des AddOns
+
+# Werte die mit `translate:` beginnen, werden anhand der Sprachdatei (lang/sprache.lang) übersetzt.
+# Der AddOn-Präfix (hier `ff_copy_tool_`) kann weggelassen werden.
+
+# Seiten des AddOns
+page:
+  title: "translate:navititle" # Bezeichnung in der REDAXO Navigation
+  icon: rex-icon fa-desktop # Icon von Font Awesome
+  perm: ff_copy_tool[]
+  pjax: true # Hier kann die Verwendung von PJAX für das eigene AddOn gesteuert werden
+  # mit der Einstellung `prio` kann die Position im Hauptmenü beeinflusst werden
+  #prio: 10
+
+  # Eigener Block in der REDAXO-Navigation
+  # Bezeichnung in der .lang-Datei mit `navigation_+addon-Id` also hier `navigation_ff_copy_tool`
+#  block: ff_copy_tool
+
+  # Unterseiten
+  subpages:
+    copy:
+      title: 'translate:copy'
+      perm: ff_copy_tool[]
+    config:
+      title: 'translate:config'
+      perm: ff_copy_tool[config]  # config-Seite mit separaten Rechten
+#    intro:
+#      title: "translate:intro"
+#      icon: rex-icon fa-desktop # Icon von Font Awesome
+#      perm: ff_copy_tool[] # Das AddOn stellt ein Benutzerrecht bereit, das aktiviert sein muss, um diese Unterseite zu erreichen. Admins haben alle Rechte.
+#      subpages: # Weitere Subpages der Hauptseite
+#        readme: { title: "translate:readme", subPath: "README.md" } # README.md aus AddOn-Pfad einbinden
+#        description:
+#          { title: "translate:description", subPath: "pages/DESCRIPTION.md" }
+#        properties: { title: "translate:properties" }
+#        changelog: { title: "translate:changelog", subPath: "CHANGELOG.md" } # Abweichender Titel zur .md-Datei
+#        hidden: {
+#            title: "translate:hidden_subpage",
+#            subPath: "pages/DESCRIPTION.md",
+#            hidden: true,
+#          } # Versteckte Subpage, nur als Beispiel
+#    config:
+#      title: "translate:config"
+#      perm: ff_copy_tool[config] # Das noch spezifischere AddOn-Benutzerrecht `config` ist für diese Unterseite erforderlich. Admins haben alle Rechte.
+#      icon: rex-icon fa-wrench # Icon von Font Awesome
+#      subpages: # Weitere Subpages der Seite config
+#        rex_config_form:
+#          title: "translate:config_rex_config_form"
+#        classic_form:
+#          title: "translate:config_classic_form"
+#    tables:
+#      title: "translate:tables"
+#      icon: rex-icon fa-table
+#      subpages: # Weitere Subpages der Seite tables
+#        tables: { title: "translate:tables", subPath: "pages/TABLES.md" }
+#        updatetable: { title: "translate:updatetable" }
+#    eps:
+#      title: "translate:eps"
+#      icon: rex-icon fa-rocket
+#      subpages: # Weitere Subpages der Seite eps
+#        eps: { title: "translate:eps", subPath: "pages/EXTENSIONPOINTS.md" }
+#        eplist: { title: "translate:eplist" }
+#        logfile: { title: "translate:logfile" }
+#    hidden:
+#      title: "translate:hidden_page"
+#      icon: rex-icon fa-ban
+#      subPath: "pages/DESCRIPTION.md"
+#      hidden: true # Versteckte Page, nur als Beispiel
+
+# Logfile zusätzlich unter `System -> Logdateien` anzeigen
+# `system/log/ff_copy_tool` wird automatisch zu `system.log.ff_copy_tool.php` aufgelöst
+#pages:
+#  system/log/ff_copy_tool:
+#    title: "translate:navititle"
+#    perm: admin[]
+
+# Eigene Properties siehe https://redaxo.org/doku/master/addon-package#eigene
+#tableupdate.listEntries: 30 # Eigene Property für die Anzahl List-Einträge in der Tabellen-Verwaltung `tables.updatetable.php`
+#logfile.listEntries: 300 # Eigene Property für die Anzahl Einträge des Logfiles in `eps.logfile.php`
+
+# Abhängigkeiten
+# Anforderungen ans System oder anderere AddOns, um dieses AddOn installieren oder updaten zu können
+requires:
+  redaxo: "^5.10" # benötigt mindestens REDAXO 5.10
+  packages:
+    media_manager: "^2.0.1" # benötigt mindestens das AddOn Media Manager 2.0.1
+    yform: ">3.4.0"
+  plugins:
+    yform/rest: ">3.4.0"
+  php:
+    version: ">=8" # benötigt mindestens PHP 8
+    extensions: [gd, xml, curl] # benötigt die PHP-Extensions GDlib und XML
+
+# Plugins die automatisch installiert werden sollen
+system_plugins:
+
+
+# Konflikte
+# Verhindert die Installation und Updates, wenn AddOns die genannten Anforderungen erfüllen
+# Siehe auch https://github.com/FriendsOfREDAXO/cache_warmup/pull/55#issuecomment-280906737
+#conflicts:
+#  packages:
+#    media_manager: ">=3" # Ist Media Manager in Version 3 vorhanden, führt das zum Konflikt mit diesem AddOn
+
+# Installer (ab REX 5.7)
+# Angabe von Ordnern und Dateien, die vom Installer ausgelassen werden sollen, wenn ein Release veröffentlicht wird
+# Siehe auch https://github.com/redaxo/redaxo/pull/2352
+installer_ignore:
+  - node_modules
+  - .env
+
