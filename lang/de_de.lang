@@ -7,7 +7,7 @@
 ff_copy_tool_navititle = Copy Tool
 
 # AddOn-Titel für alle AddOn-Seiten, AddOn-Präfix (hier `ff_copy_tool_`) + `title` -> `ff_copy_tool_title`
-ff_copy_tool_title = FACT-Finder Copy Tool
+ff_copy_tool_title = Copy Tool
 
 # Eigener Block mit Bezeichnung in der REDAXO-Navigation
 # in der package.yml des AddOns folgendes unter page angeben: `block: ff_copy_tool`
