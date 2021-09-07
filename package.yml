@@ -27,6 +27,8 @@ page:
     config:
       title: 'translate:config'
       perm: ff_copy_tool[config]  # config-Seite mit separaten Rechten
+    info:
+      title: 'translate:info'
 # Abhängigkeiten
 # Anforderungen ans System oder anderere AddOns, um dieses AddOn installieren oder updaten zu können
 requires:

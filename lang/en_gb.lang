@@ -5,6 +5,8 @@
 
 # Bezeichnung in der REDAXO-Navigation -> translate:navititle in der package.yml
 ff_copy_tool_navititle = Copy Tool
+ff_copy_tool_config = Settings
+ff_copy_tool_info = Info
 
 ff_copy_tool_config_sites = Destination Domains
 ff_copy_tool_config_token = Destination Token

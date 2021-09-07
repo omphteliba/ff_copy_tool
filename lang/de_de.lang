@@ -17,6 +17,7 @@ navigation_ff_copy_tool = Copy Tool
 # Hauptnavi-Punkte des AddOns
 ff_copy_tool_intro = Copy Tool
 ff_copy_tool_config = Einstellungen
+ff_copy_tool_info = Anleitung
 ff_copy_tool_tables = Tabellen
 ff_copy_tool_eps = Extension Points
 ff_copy_tool_hidden_page = Versteckte Seite
