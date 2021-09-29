@@ -29,6 +29,11 @@ page:
       perm: ff_copy_tool[config]  # config-Seite mit separaten Rechten
     info:
       title: 'translate:info'
+      itemclass: 'pull-right'
+      subpages:
+        info: { title: 'translate:info' }
+        changelog: { title: 'translate:changelog' }
+        lizenz: { title: 'translate:lizenz' }'
 # Abhängigkeiten
 # Anforderungen ans System oder anderere AddOns, um dieses AddOn installieren oder updaten zu können
 requires:

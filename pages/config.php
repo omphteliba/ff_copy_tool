@@ -10,8 +10,6 @@ $content = '';
 
 if (rex_post('config-submit', 'boolean')) {
     $this->setConfig(rex_post('config', [
-//        ['master_db', 'string'],
-//        ['slave_dbs', 'string'],
         ['slave_sites', 'string'],
         ['slave_token', 'string'],
     ]));
@@ -24,15 +22,6 @@ $content .= '  <form action="' . rex_url::currentBackendPage() . '" method="post
 $content .= '    <fieldset>';
 
 $formElements = [];
-//$n = [];
-//$n['label'] = '<label for="rex-omi_sync-config-master">' . $this->i18n('config_master') . '</label>';
-//$n['field'] = '<input type="text" id="rex-omi_sync-config-master" name="config[master_db]" value="' . $this->getConfig('master_db') . '"/>';
-//$formElements[] = $n;
-//
-//$n = [];
-//$n['label'] = '<label for="rex-omi_sync-config-slaves">' . $this->i18n('config_slaves') . '</label>';
-//$n['field'] = '<textarea id="rex-omi_sync-config-slaves" name="config[slave_dbs]" rows="5">' . $this->getConfig('slave_dbs') . '</textarea>';
-//$formElements[] = $n;
 
 $n = [];
 $n['label'] = '<label for="rex-omi_sync-config-sites">' . $this->i18n('config_sites') . '</label>';
@@ -41,7 +30,7 @@ $formElements[] = $n;
 
 $n = [];
 $n['label'] = '<label for="rex-omi_sync-config-sites">' . $this->i18n('config_token') . '</label>';
-$n['field'] = '<textarea id="rex-omi_sync-config-token" name="config[slave_token]" rows="5">' . $this->getConfig('slave_token') . '</textarea>';
+$n['field'] = '<textarea id="rex-omi_sync-config-token" name="config[slave_token]" rows="5" cols="40">' . $this->getConfig('slave_token') . '</textarea>';
 $formElements[] = $n;
 
 $fragment = new rex_fragment();
@@ -49,7 +38,7 @@ $fragment->setVar('elements', $formElements, false);
 try {
     $content .= $fragment->parse('core/form/form.php');
 } catch (rex_exception $e) {
-    error_log($e);
+    rex_logger::logException($e);
 }
 
 $content .= '    </fieldset>';

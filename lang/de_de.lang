@@ -22,6 +22,9 @@ ff_copy_tool_tables = Tabellen
 ff_copy_tool_eps = Extension Points
 ff_copy_tool_hidden_page = Versteckte Seite
 
+ff_copy_changelog = Changelog
+ff_copy_lizenz = Lizenz
+
 # Reiter ff_copy_tool
 ff_copy_tool_description = Beschreibung
 ff_copy_tool_readme = README

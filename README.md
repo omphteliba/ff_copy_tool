@@ -7,7 +7,7 @@ Die Installation muss sowohl auf dem Ursprungs- als auch auf dem Ziel-REDAXO vor
 2. Zip Archiv entpacken
 3. Entpackten Folder in `ff_copy_tool` umbenennen
 4. MForm Ordner in den REDAXO Addon Ordner `redaxo/src/addons/` verschieben
-5. In REDAXO einloggen und unter "AddOns" MForm installieren und aktivieren
+5. In REDAXO einloggen und unter "AddOns" ff_copy_tool installieren und aktivieren
 
 ## Einrichtung
 
