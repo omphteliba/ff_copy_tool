@@ -1,5 +1,5 @@
 # REDAXO-AddOn: Copy Tool
-Kopiert Artikel zwischen REDAXO Installationen.
+Kopiert Artikel und Medien zwischen REDAXO Installationen.
 
 ## Installation
 Die Installation muss sowohl auf dem Ursprungs- als auch auf dem Ziel-REDAXO vorgenommen werden.
@@ -20,10 +20,14 @@ Im 'Copy Tool / Einstellungen' für jedes Ziel-System in der Textbox 'Ziel Domai
 
 ## Benutzung
 In dem Artikel der kopiert werden soll gibt es im Editor rechts in der Spalte einen neuen Bereich 'Artikel auf andere Web-Site kopieren'. Hier die Ziel Domain auswählen und auf 'Kopieren' klicken. 
+
 ![image](https://user-images.githubusercontent.com/196336/132231510-056fc19d-420b-43d3-9017-f82ac67d8a51.png)
 
 
 Im Zielsystem wird dieser Artikel in der Wurzel-Kategorie als letzter Artikel angefügt. Das passiert mit kurzer Zeit verzögerung via cronjob, ober kann händisch im Copy Tool des Ziel-Systems ausgelöst werden. Dort kann man auch nachschauen ob noch Artikel warten.
+
+## ToDo
+Medien im Quelltext suchen und kopieren
 
 ## Basiert auf:
 [Demo Addon](https://github.com/FriendsOfREDAXO/demo_addon)
