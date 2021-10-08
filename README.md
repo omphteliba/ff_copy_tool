@@ -13,9 +13,9 @@ Die Installation muss sowohl auf dem Ursprungs- als auch auf dem Ziel-REDAXO vor
 Das Copy Tool kann auch direkt über den Redaxo-Installer installiert werden.
 
 1. In REDAXO einloggen
-2. Im Backend unter "Installer > Neue herunterladen" "MForm" suche und unter "Funktion" "ansehen" klicken
+2. Im Backend unter "Installer > Neue herunterladen" "Copy Tool" suche und unter "Funktion" "ansehen" klicken
 3. Bei der aktuelle Version in der Liste unter "Funktion" "herunterladen" klicken
-4. Unter "AddOns" MForm installieren und aktivieren
+4. Unter "AddOns" ff_copy_tool installieren und aktivieren
 
 ## Einrichtung
 
