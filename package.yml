@@ -52,6 +52,5 @@ system_plugins:
 # Angabe von Ordnern und Dateien, die vom Installer ausgelassen werden sollen, wenn ein Release veröffentlicht wird
 # Siehe auch https://github.com/redaxo/redaxo/pull/2352
 installer_ignore:
-  - node_modules
   - .env
 

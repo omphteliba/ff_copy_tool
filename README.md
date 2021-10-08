@@ -1,5 +1,5 @@
 # REDAXO-AddOn: Copy Tool
-Kopiert Artikel und Medien zwischen REDAXO Installationen.
+Kopiert Artikel und Medien zwischen REDAXO Installationen. Der Artikel, seine Slices und Medien werden über die YForm REST-Api aufs Ziel-System in temporäre Tabellen geschrieben und landt dann auf Knopfdruck oder Cronjob im Wurzelverzeichnis als neuer Artikel unter neuem Namen.
 
 ## Installation
 Die Installation muss sowohl auf dem Ursprungs- als auch auf dem Ziel-REDAXO vorgenommen werden.
@@ -8,6 +8,14 @@ Die Installation muss sowohl auf dem Ursprungs- als auch auf dem Ziel-REDAXO vor
 3. Entpackten Folder in `ff_copy_tool` umbenennen
 4. MForm Ordner in den REDAXO Addon Ordner `redaxo/src/addons/` verschieben
 5. In REDAXO einloggen und unter "AddOns" ff_copy_tool installieren und aktivieren
+
+## Alternative Installation
+Das Copy Tool kann auch direkt über den Redaxo-Installer installiert werden.
+
+1. In REDAXO einloggen
+2. Im Backend unter "Installer > Neue herunterladen" "MForm" suche und unter "Funktion" "ansehen" klicken
+3. Bei der aktuelle Version in der Liste unter "Funktion" "herunterladen" klicken
+4. Unter "AddOns" MForm installieren und aktivieren
 
 ## Einrichtung
 
@@ -27,7 +35,7 @@ In dem Artikel der kopiert werden soll gibt es im Editor rechts in der Spalte ei
 Im Zielsystem wird dieser Artikel in der Wurzel-Kategorie als letzter Artikel angefügt. Das passiert mit kurzer Zeit verzögerung via cronjob, ober kann händisch im Copy Tool des Ziel-Systems ausgelöst werden. Dort kann man auch nachschauen ob noch Artikel warten.
 
 ## ToDo
-Medien im Quelltext suchen und kopieren
+* Medien im Quelltext suchen und kopieren
 
 ## Basiert auf:
 [Demo Addon](https://github.com/FriendsOfREDAXO/demo_addon)
