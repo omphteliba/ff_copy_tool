@@ -10,6 +10,8 @@ class FfCopyTool
      */
     protected static array $settings = [];
 
+    public string $error_msg = '';
+
     /**
      * init.
      */
@@ -33,7 +35,26 @@ class FfCopyTool
     }
 
     /**
+     * @return string
+     */
+    public function getErrorMsg(): string
+    {
+        return $this->error_msg;
+    }
+
+    /**
+     * @param string $error_msg
+     */
+    public function setErrorMsg(string $error_msg): void
+    {
+        $this->error_msg = $error_msg;
+    }
+
+
+    /**
      * @param $childsDBs
+     *
+     * @return array
      */
     public static function getChildren($childsDBs): array
     {
@@ -48,11 +69,12 @@ class FfCopyTool
     /**
      * @param \rex_extension_point $epoint
      *
+     * @return string
      * @throws \rex_exception
      */
     public static function addBackendSidebar(rex_extension_point $epoint): string
     {
-        $params = $epoint->getParams();
+        $params  = $epoint->getParams();
         $subject = $epoint->getSubject();
 
         $panel = include rex_path::addon('ff_copy_tool', 'pages/content.ff_copy_tool.sidebar.php');
@@ -79,13 +101,13 @@ class FfCopyTool
      *
      * @return bool
      */
-    public static function copyArticle($article_id, $site_id): bool
+    public function copyArticle($article_id, $site_id): bool
     {
         $addon = rex_addon::get('ff_copy_tool');
         $sites = $addon->getConfig('slave_sites');
         $token = $addon->getConfig('slave_token');
 
-        $fct = new self();
+        $fct   = new self();
         $sites = $fct::getChildren($sites);
         $token = $fct::getChildren($token);
 
@@ -108,7 +130,7 @@ class FfCopyTool
 
         foreach ($query as $type => $select) {
             if ($select !== '') {
-                $url = 'https://' . $sites[$site_id] . '/rest/copy/' . $type;
+                $url              = 'https://' . $sites[$site_id] . '/rest/copy/' . $type;
                 $sql_query_failed = false;
 
                 try {
@@ -122,7 +144,7 @@ class FfCopyTool
                         $values = $sql->getRow();
                         foreach ($values as $fieldname => $value) {
                             $fieldname_array = explode('.', $fieldname);
-                            $fieldname_new = $fieldname_array[1];
+                            $fieldname_new   = $fieldname_array[1];
                             if ($fieldname_new === 'pid') {
                                 $fieldname_new = 'fc_pid';
                             }
@@ -130,7 +152,7 @@ class FfCopyTool
                                 $fieldname_new = 'fc_id';
                             }
                             $values[$fieldname_new] = $value;
-                            if ($type === 'fc_article'){
+                            if ($type === 'fc_article') {
                                 if ($fieldname_new === 'catname') {
                                     $values[$fieldname_new] = '';
                                 }
@@ -157,7 +179,7 @@ class FfCopyTool
 }
 ';
 
-                        $resp = self::talkToApi($url, $headers, $data);
+                        $resp  = self::talkToApi($url, $headers, $data);
                         $error = json_decode($resp, true);
                         if (array_key_exists('errors', $error)) {
                             rex_logger::logError(
@@ -168,6 +190,10 @@ class FfCopyTool
                                 __FILE__,
                                 __LINE__
                             );
+                            self::setErrorMsg($error['errors']['message'] .
+                                ' / status: ' . $error['errors']['status']);
+
+                            return false;
                         }
                         $sql->next();
                     }
@@ -214,11 +240,11 @@ class FfCopyTool
      */
     public static function mediaInUse(int $article_id): string
     {
-        $query = '';
+        $query            = '';
         $sql_query_failed = false;
-        $found_media = false;
+        $found_media      = false;
 
-        $sql = rex_sql::factory();
+        $sql    = rex_sql::factory();
         $select = 'SELECT * from rex_article_slice WHERE article_id = "' . $article_id . '"';
 
         try {
@@ -273,7 +299,7 @@ class FfCopyTool
     public static function checkNewArticle(): bool
     {
         $sql_query_failed = false;
-        $sql = rex_sql::factory();
+        $sql              = rex_sql::factory();
         $sql->setDebug(false);
 
         $query = 'SELECT fc_pid FROM ' . rex::getTablePrefix() . 'fc_article WHERE -1';
@@ -325,7 +351,7 @@ class FfCopyTool
     public static function writeMedia(): bool
     {
         $sql_query_failed = false;
-        $sql = rex_sql::factory();
+        $sql              = rex_sql::factory();
         $sql->setDebug(false);
 
         $query = 'SELECT * FROM ' . rex::getTablePrefix() . 'fc_media WHERE -1';
@@ -339,7 +365,7 @@ class FfCopyTool
         if (!$sql_query_failed && $sql->getRows() > 0) {
             $forbidden_fields = array('fc_id', 'id', 'server');
             $forbidden_fields = self::checkExistingFields('media', 'fc_media', $forbidden_fields);
-            $sql_insert = rex_sql::factory();
+            $sql_insert       = rex_sql::factory();
             $sql_insert->setDebug(false);
             while ($sql->hasNext()) {
                 $insertCounter = 0;
@@ -351,12 +377,12 @@ class FfCopyTool
                 $rex_media = rex_media::get($name);
                 if (null === $rex_media) {
                     $insert_query = 'INSERT INTO ' . rex::getTablePrefix() . 'media SET ';
-                    $values = $sql->getRow();
+                    $values       = $sql->getRow();
 
                     // gibts schon so ein file das so heisst, dann kopier ich den eintrag nicht
                     foreach ($values as $fieldname => $value) {
                         $fieldname_array = explode('.', $fieldname);
-                        $fieldname_new = $fieldname_array[1];
+                        $fieldname_new   = $fieldname_array[1];
 
                         if (!in_array($fieldname_new, $forbidden_fields, true)) {
                             if ($insertCounter > 0) {
@@ -395,8 +421,11 @@ class FfCopyTool
         return true;
     }
 
-    public static function checkExistingFields(string $tablename, string $temp_tablename, array $forbidden_fields): array
-    {
+    public static function checkExistingFields(
+        string $tablename,
+        string $temp_tablename,
+        array $forbidden_fields
+    ): array {
         $sql = rex_sql::factory();
         $sql->setDebug(false);
         $sql->setTable(rex::getTablePrefix() . $tablename);
@@ -445,7 +474,7 @@ class FfCopyTool
         $ch = curl_init($url);
         if ($ch) {
             $localFile = rex_path::media() . $filename;
-            $fp = fopen($localFile, 'wb');
+            $fp        = fopen($localFile, 'wb');
             if ($fp) {
                 curl_setopt($ch, CURLOPT_FILE, $fp);
                 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -533,7 +562,7 @@ class FfCopyTool
     public static function writeSlices(int $old_id, int $new_id): bool
     {
         $sql_query_failed = false;
-        $sql = rex_sql::factory();
+        $sql              = rex_sql::factory();
         $sql->setDebug(false);
 
         $query = 'SELECT * FROM ' . rex::getTablePrefix() . 'fc_article_slice WHERE article_id = ' . $old_id;
@@ -548,15 +577,15 @@ class FfCopyTool
         if (!$sql_query_failed && $rows > 0) {
             $forbidden_fields = array('id', 'fc_id', 'article_id');
             $forbidden_fields = self::checkExistingFields('article_slice', 'fc_article_slice', $forbidden_fields);
-            $sql_insert = rex_sql::factory();
+            $sql_insert       = rex_sql::factory();
             $sql_insert->setDebug(false);
             while ($sql->hasNext()) {
-                $values = $sql->getRow();
+                $values       = $sql->getRow();
                 $insert_query = 'INSERT INTO ' . rex::getTablePrefix() . 'article_slice SET ';
                 $insert_query .= 'article_id = ' . $new_id;
                 foreach ($values as $fieldname => $value) {
                     $fieldname_array = explode('.', $fieldname);
-                    $fieldname_new = $fieldname_array[1];
+                    $fieldname_new   = $fieldname_array[1];
 
                     if (!in_array($fieldname_new, $forbidden_fields, true)) {
                         $insert_query .= ', ';
@@ -589,8 +618,8 @@ class FfCopyTool
     public static function writeArticle(): bool
     {
         // move data to live tables
-        $clang = 1;
-        $old_id = 0;
+        $clang          = 1;
+        $old_id         = 0;
         $deleteTheseIds = array();
 
         $sql = rex_sql::factory();
@@ -607,10 +636,10 @@ class FfCopyTool
         if ($sql->getRows() > 0) {
             $forbidden_fields = array('pid', 'id', 'fc_id', 'fc_pid', 'name', 'status', 'create_user', 'update_user');
             $forbidden_fields = self::checkExistingFields('article', 'fc_article', $forbidden_fields);
-            $sql_insert = rex_sql::factory();
+            $sql_insert       = rex_sql::factory();
             $sql_insert->setDebug(false);
             while ($sql->hasNext()) {
-                $values = $sql->getRow();
+                $values       = $sql->getRow();
                 $insert_query = 'INSERT INTO ' . rex::getTablePrefix() . 'article SET ';
                 $sql->setTable(rex::getTablePrefix() . 'article');
                 try {
@@ -623,7 +652,7 @@ class FfCopyTool
                 $insert_query .= 'id = ' . $new_id;
                 foreach ($values as $fieldname => $value) {
                     $fieldname_array = explode('.', $fieldname);
-                    $fieldname_new = $fieldname_array[1];
+                    $fieldname_new   = $fieldname_array[1];
 
                     if (!in_array($fieldname_new, $forbidden_fields, false)) {
                         $insert_query .= ', ';

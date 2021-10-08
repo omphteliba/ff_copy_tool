@@ -12,12 +12,12 @@ if (rex::getUser()->hasPerm('ff_copy_tool[]')) {
         $copyId = rex_request('article_id');
         $copyTarget = rex_request('site_id');
 
-        $result = $fct::copyArticle($copyId, $copyTarget);
+        $result = $fct->copyArticle($copyId, $copyTarget);
 
         if($result){
             echo rex_view::success($addon->i18n('copy_success'));
         } else {
-            echo rex_view::warning($addon->i18n('copy_error'));
+            echo rex_view::warning($addon->i18n('copy_error') . ' ( ' . $fct->getErrorMsg() . ' )');
             rex_logger::logError(2, 'FF Copy Tool - Something went wront with the API call: destination=' . $copyTarget . ' / id=' . $copyId, __FILE__, __LINE__);
         }
     }

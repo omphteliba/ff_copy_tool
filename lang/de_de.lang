@@ -18,9 +18,6 @@ navigation_ff_copy_tool = Copy Tool
 ff_copy_tool_intro = Copy Tool
 ff_copy_tool_config = Einstellungen
 ff_copy_tool_info = Anleitung
-ff_copy_tool_tables = Tabellen
-ff_copy_tool_eps = Extension Points
-ff_copy_tool_hidden_page = Versteckte Seite
 
 ff_copy_changelog = Changelog
 ff_copy_lizenz = Lizenz
@@ -32,12 +29,6 @@ ff_copy_tool_changelog = CHANGELOG
 ff_copy_tool_properties = Properties
 ff_copy_tool_properties_title = AddOn-Properties
 ff_copy_tool_hidden_subpage = Versteckte Unterseite
-
-# Reiter Einstellungen
-ff_copy_tool_config_rex_config_form = mit rex_config_form
-ff_copy_tool_config_classic_form = klassisch (rex_form / rex_list)
-ff_copy_tool_config_master = Master Datenbank
-ff_copy_tool_config_slaves = Slave Datenbanken
 
 ff_copy_tool_config_title_rex_config = Einstellungen mit rex_config_form
 ff_copy_tool_config_title_classic = Einstellungen klassisch (rex_form, rex_list, Fragmente)
@@ -67,46 +58,6 @@ ff_copy_tool_config_saved = Einstellungen wurden gespeichert!
 
 # Reiter Copy
 ff_copy_tool_copy = Kopieren
-
-# Reiter Tabellen
-ff_copy_tool_updatetable = Tabellenverwaltung
-
-ff_copy_tool_thead_title = Demo Tabellenverwaltung mit rex_list/rex_form
-ff_copy_tool_thead_id = ID
-ff_copy_tool_thead_anrede = Anrede
-ff_copy_tool_thead_vorname = Vorname
-ff_copy_tool_thead_name = Name
-ff_copy_tool_thead_strasse = Strasse
-ff_copy_tool_thead_plz = PLZ
-ff_copy_tool_thead_ort = Ort
-ff_copy_tool_thead_birthdate = Geburtsdatum
-ff_copy_tool_thead_status = Status
-ff_copy_tool_thead_func = Funktionen
-ff_copy_tool_list_no_rows = Keine Einträge vorhanden!
-ff_copy_tool_list_mr = Herr
-ff_copy_tool_list_mrs = Frau
-ff_copy_tool_list_active = aktiv
-ff_copy_tool_list_inactive = inaktiv
-ff_copy_tool_list_edit = Datensatz bearbeiten
-ff_copy_tool_list_create_new_entry = Neuen Datensatz anlegen
-ff_copy_tool_confirm_delete = Datensatz löschen?
-ff_copy_tool_delete = Löschen
-ff_copy_tool_list_deleted = Datensatz wurde gelöscht!
-ff_copy_tool_list_activated = Datensatz wurde aktiviert!
-ff_copy_tool_list_deactivated = Datensatz wurde deaktiviert!
-ff_copy_tool_list_error = Beim Datenbank-Update ist ein Fehler aufgetreten!
-
-# Reiter Extension Points
-ff_copy_tool_eplist = Liste der Extension Points
-ff_copy_tool_logfile = Logfile
-ff_copy_tool_eplist_title = Liste der Beispiel Extension Points im Demo AddOn
-
-# Logdatei
-ff_copy_tool_log_timestamp = Zeit
-ff_copy_tool_logid = EP
-ff_copy_tool_log_message = Ausgabe
-ff_copy_tool_log_deleted = Logfile wurde gelöscht
-ff_copy_tool_log_delete_error = Fehler beim Löschen des Logfiles
 
 # Benennung für die Addonrechte
 # sichtbar innerhalb der REDAXO-Administration unter `Benutzer > Rollen > Allgemein`
