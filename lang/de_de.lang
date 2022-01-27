@@ -19,8 +19,8 @@ ff_copy_tool_intro = Copy Tool
 ff_copy_tool_config = Einstellungen
 ff_copy_tool_info = Anleitung
 
-ff_copy_changelog = Changelog
-ff_copy_lizenz = Lizenz
+ff_copy_tool_changelog = Changelog
+ff_copy_tool_lizenz = Lizenz
 
 # Reiter ff_copy_tool
 ff_copy_tool_description = Beschreibung
@@ -30,28 +30,7 @@ ff_copy_tool_properties = Properties
 ff_copy_tool_properties_title = AddOn-Properties
 ff_copy_tool_hidden_subpage = Versteckte Unterseite
 
-ff_copy_tool_config_title_rex_config = Einstellungen mit rex_config_form
-ff_copy_tool_config_title_classic = Einstellungen klassisch (rex_form, rex_list, Fragmente)
 
-ff_copy_tool_config_legend1 = Einfache Felder
-ff_copy_tool_config_url = URL
-ff_copy_tool_config_text = Text
-ff_copy_tool_config_checkbox = Checkbox
-ff_copy_tool_config_select = Select
-ff_copy_tool_config_multiselect = Multiselect
-ff_copy_tool_config_multiselect_note = Mehrfachauswahl mit <kbd>STRG</kbd> bzw. <kbd>CMD</kbd>
-ff_copy_tool_config_radio_fe = Frontend
-ff_copy_tool_config_radio_be = Backend
-
-ff_copy_tool_config_legend2 = Medienpool
-ff_copy_tool_config_media = Datei
-ff_copy_tool_config_medialist = Datei-Liste
-ff_copy_tool_config_mediacategories = Medienkategorien
-
-ff_copy_tool_config_legend3 = Linkmap usw.
-ff_copy_tool_config_article = Artikel
-ff_copy_tool_config_articlelist = Artikel-Liste
-ff_copy_tool_config_categories = Kategorienauswahl
 
 ff_copy_tool_config_save = Einstellungen speichern
 ff_copy_tool_config_saved = Einstellungen wurden gespeichert!

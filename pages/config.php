@@ -56,7 +56,7 @@ $fragment->setVar('elements', $formElements, false);
 try {
     $content .= $fragment->parse('core/form/submit.php');
 } catch (rex_exception $e) {
-    error_log($e);
+    rex_logger::logException($e);
 }
 
 $content .= '    </fieldset>';
@@ -70,5 +70,5 @@ $fragment->setVar('body', $content, false);
 try {
     echo $fragment->parse('core/page/section.php');
 } catch (rex_exception $e) {
-    error_log($e);
+    rex_logger::logException($e);
 }

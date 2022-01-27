@@ -23,3 +23,6 @@ ff_copy_tool_runsOnTarget_error = An error occurred while transferring the queue
 ff_copy_tool_runsOnTarget_error_log = FF Copy Tool - Something went wront while runsOnTarget()
 
 cronjob_ff_copy = FF Copy Tool
+
+ff_copy_tool_changelog = Changelog
+ff_copy_tool_lizenz = Licence

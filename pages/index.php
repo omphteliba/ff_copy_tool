@@ -1,6 +1,6 @@
 <?php
 
-$addon = rex_addon::get('ff_copy_tool');
+$addon = rex_addon::get('ff_ai_bild_beschreibung');
 
 // Die layout/top.php und layout/bottom.php werden automatisch eingebunden
 

@@ -15,9 +15,17 @@
 
  ---
 
+##[1.0.3] - 26.01.2022
+
+### 🐛 Bugfixes
+* Anpassung an Yform 4
+
+ ---
+
 ##[1.0.2] - 8.10.2021 
 
-### 🐛 Bugfixes Errorhandling verbessert
+### 🐛 Bugfixes 
+* Errorhandling verbessert
 
  ---
 

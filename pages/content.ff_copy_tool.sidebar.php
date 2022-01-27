@@ -57,7 +57,7 @@ if (rex::getUser()->hasPerm('ff_copy_tool[]')) {
         'clang' => $clang,
         'ctype' => $ctype,
     ], false));
-    $yform->setValueField('select', ['site_id', rex_i18n::msg('ff_copy_tool_extras_website'), $dropdown]);
+    $yform->setValueField('choice', ['site_id', rex_i18n::msg('ff_copy_tool_extras_website'), $dropdown]);
 
     return $yform->getForm();
 }
